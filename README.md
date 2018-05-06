@@ -1,8 +1,12 @@
 # pong-game-sdl2
-No AI, just a 2 player game!
+2 player ping-pong game.
 
 SDL2 libraries must be installed.
+(sudo apt-get install libsdl2-dev libsdl2-image)
 
-omp part is not neccessary, either remove it or execute with omp libraries installed.
+Instructions:
+-------------
+To compile the file:
+g++ pong.cpp -lSDL2 -lSDL2_image
 
-tested only on Linux.
+While executing the game make sure image files (dot.bmp and plank.bmp) are in same directory.
