@@ -4,7 +4,7 @@
 Notes:
 ------
 
-<i>(tested only on linux)</i>
+<i>(tested only on linux, and it is buggy)</i>
 
 SDL2 libraries must be installed.
 
@@ -21,3 +21,20 @@ To compile the file:
 While executing the game, make sure image files (dot.bmp and plank.bmp) are in same directory.
 
 <code>./pong</code>
+
+Default game controls:
+---------------------
+
+<code>R</code> - Reset ball position
+
+Player 1 (Left):
+
+<code>W</code> - Up
+
+<code>S</code> - Down
+
+Player 2 (Right):
+
+<code>I</code> - Up
+
+<code>K</code> - Down
