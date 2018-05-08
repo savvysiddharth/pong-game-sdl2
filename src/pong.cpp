@@ -503,59 +503,66 @@ int main(int argc, char const *argv[])
 					{
 						quit=true;
 					}
-							if(e.type == SDL_KEYDOWN) //just randomizing ball origin
+					
+					if(e.type == SDL_KEYDOWN) //just randomizing ball origin
+					{
+						switch(e.key.keysym.sym)
+						{
+							srand(time(0)%100);
+							case SDLK_r:
+							dot.posX=SCREEN_WIDTH/2;
+							dot.posY=rand()%480;
+							int z = rand()%4;
+							if(z==0)
 							{
-								switch(e.key.keysym.sym)
-								{
-									srand(time(0)%100);
-									case SDLK_r: 
-									dot.posX=SCREEN_WIDTH/2;
-									dot.posY=rand()%480;
-									int z = rand()%4;
-									if(z==0){
-										dot.velX=-5;
-										dot.velY=-5;}
-										else if(z==1){
-											dot.velX=5;
-											dot.velY=-5;}
-											else if(z==2){
-												dot.velX=-5;
-												dot.velY=5;	}
-												else{
-													dot.velX=5;
-													dot.velY=5;}
-													break;
-												}
-											}
-
-							//dot.handleEvent(e); //developer mode
-											plank1.handleEvent(e,0);
-											plank2.handleEvent(e,1);
-										}
-
-
-										plank1.move();
-										plank2.move();
-										dot.move(plank1.plankCollider,plank2.plankCollider);
-
-										SDL_SetRenderDrawColor( gRenderer, 0x00, 0x00, 0x00, 0xFF );
-										SDL_RenderClear( gRenderer );
-
-										SDL_SetRenderDrawColor( gRenderer, 0xFF, 0xFF, 0xFF, 0xFF );
-										for( int i = 0; i < SCREEN_HEIGHT; i += 4 )
-										{
-											SDL_RenderDrawPoint( gRenderer, SCREEN_WIDTH / 2, i );
-										}
-
-										plank1.render();
-										plank2.render();
-										dot.render();
-										SDL_RenderPresent( gRenderer );
-									}
-
-								}
+								dot.velX=-5;
+								dot.velY=-5;
 							}
-
-							close();
-							return 0;
+							else if(z==1)
+							{
+								dot.velX=5;
+								dot.velY=-5;
+							}
+							else if(z==2)
+							{
+								dot.velX=-5;
+								dot.velY=5;	
+							}
+							else
+							{
+								dot.velX=5;
+								dot.velY=5;
+							}
+							break;	
 						}
+					}
+
+					//dot.handleEvent(e); //developer mode
+					plank1.handleEvent(e,0);
+					plank2.handleEvent(e,1);
+				}
+
+				plank1.move();
+				plank2.move();
+				dot.move(plank1.plankCollider,plank2.plankCollider);
+
+				SDL_SetRenderDrawColor( gRenderer, 0x00, 0x00, 0x00, 0xFF );
+				SDL_RenderClear( gRenderer );
+
+				SDL_SetRenderDrawColor( gRenderer, 0xFF, 0xFF, 0xFF, 0xFF );
+				
+				for( int i = 0; i < SCREEN_HEIGHT; i += 4 )
+				{
+					SDL_RenderDrawPoint( gRenderer, SCREEN_WIDTH / 2, i );
+				}
+
+				plank1.render();
+				plank2.render();
+				dot.render();
+				SDL_RenderPresent( gRenderer );
+			}
+		}
+	}
+close();
+return 0;
+}
