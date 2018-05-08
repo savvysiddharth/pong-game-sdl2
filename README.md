@@ -16,6 +16,8 @@ Instructions:
 -------------
 To compile the file:
 
-<code>g++ pong.cpp -lSDL2 -lSDL2_image</code>
+<code>g++ pong.cpp -o pong -lSDL2 -lSDL2_image</code>
 
 While executing the game, make sure image files (dot.bmp and plank.bmp) are in same directory.
+
+<code>./pong</code>
